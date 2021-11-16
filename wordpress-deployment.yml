@@ -1,21 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Wordpres-Deployment
+  name: wordpress-deployment
+  labels:
+    tier: frontend
 spec:
   selector:
     matchLabels:
       tier: frontend
-  templates:
+  template:
     metadata:
       labels:
         tier: frontend
-    containers:
-      - name: Wordpress
-        image: wordpress:latest
-        ports:
-        - containerPort: 80
-        envFrom:
-          - configMapRef:
-              name: wordpress-config
-              
+    spec:
+      containers:
+        - name: wordpress
+          image: wordpress:latest
+          ports:
+          - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: wordpress-config
+      volumes:
+      - name: wordpress-persistent-volume 
+        persistentVolumeClaim:
+          claimName: wordpress-persistent-claim 
+
