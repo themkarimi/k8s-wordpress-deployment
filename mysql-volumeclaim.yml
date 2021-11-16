@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-presistent-volume
+  name: mysql-persistent-claim
   labels:
     tier: backend
 spec:
+  storageClassName: local-storage
   accessModes:
     - ReadWriteMany
   resources:
