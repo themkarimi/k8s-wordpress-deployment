@@ -1,13 +1,13 @@
 apiVersion: v1
-kind: PersistentvolumeClaim
+kind: PersistentVolumeClaim
 metadata:
   name: wordpress-presistent-claim
   labels:
     tier: frontend
 spec:
-  accessMode:
+  accessModes:
     - ReadWriteMany
   resources:
-    request:
+    requests:
       storage: 6Gi
       
