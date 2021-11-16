@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: wordpress
-          image: registry.sohato.com/wordpress
+          image: wordpress
           ports:
           - containerPort: 80
           envFrom:

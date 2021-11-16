@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: wordpress-db
-          image: registry.sohato.com/mysql
+          image: mysql
           ports:
             - containerPort: 3306
           env:
