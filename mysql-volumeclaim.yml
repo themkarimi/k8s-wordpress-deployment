@@ -1,0 +1,12 @@
+version: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-presistent-volume
+  labels:
+    tier: backend
+spec:
+  accessMode:
+    - ReadWriteMany
+  resources:
+    - request:
+      storage: 6Gi  
